@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <title>{% block title %} {% endblock title %}</title>
+  </head>
+  <body>
+    <div class="container">
+       <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">TODO App</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'index' %}">
+                <i class="fa fa-home"></i>
+                Home
+                <span class="sr-only">(current)</span>
+                </a>
+            </li>
+            <li>
+              <a class="nav-link" href="{% url 'create' %}">
+                <i class="fa fa-plus"></i> Create
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" href="{% url 'logout' %}">
+                <i class="fa fa-sign-out"></i> Logout
+              </a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fa fa-address-book">
+                  <sup><span class="badge badge-success">{% block record %}{% endblock record %}</span></sup>
+                </i>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link" href="#">
+                <i class="fa fa-user"></i> 
+               {% if request.user.is_authenticated %}
+                  {{user.username}}
+               {% endif %}
+              </a>
+            </li>
+          </ul>
+          <form method="GET" action="/tasks/" class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" name="q" placeholder="Search for Title" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+    </div>
+      <div class="conteiner">
+      <div class="row justify-content-center">
+        <div class="col-7 mx-auto mt-4">
+            {% block content %} {% endblock %}
+        </div>
+      </div>
+    </div>
+    <div class="conteiner">
+      <div class="row">
+            {% block list %} {% endblock list%}
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{%block title%}
+    {{object.taskTitle}}
+{%endblock title%}
+{% block content %} 
+    <h1>{{ object.taskTitle }}</h1>
+    <p>{{ object.taskContent }}</p>
+    <a href="/update/{{ object.id }}/" class="btn btn-info">Update</a>
+    <a href="/delete/{{ object.id }}/" class="btn btn-danger">Delete</a>
+{% endblock content%}

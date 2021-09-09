@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{%block title%}
+    Searching for ...
+{%endblock title%}
+
+{% block content %} 
+    {% if object %}
+        {% for x in object %}
+            <div class="row">
+             <div class="col-8 mx-auto mt-4">
+                <div class="card border-dark mb-3" style="max-width: 80rem;">
+                    <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="card-title">{{ x.taskTitle }}</h5>
+                            <p class="card-text">{{ x.taskContent }}</p>
+                        </div>
+                        <div class="col justify-content-end">
+                            {% if x.taskComplete %}
+                                <a href="#" class="badge badge-success">Task Completed</a>
+                            {% else %}
+                                <a href="#" class="badge badge-warning">Not over yet!</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <a href="/tasks/{{ x.id }}/" class="btn btn-primary mt-3">Detail</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p>No Search found!</p>
+    {% endif %}
+{% endblock content%}

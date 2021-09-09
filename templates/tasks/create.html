@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{%block title%}
+    {{object.taskTitle}}
+{%endblock title%}
+{% block content %} 
+{% if not created %}
+    <div class="container">
+        <div class="row">
+            <form method="POST" action="/tasks/create/">
+            {% csrf_token %}
+                <div class="form-group">
+                    <label for="input_task_title">Task Title</label>
+                    <input type="text" class="form-control" area-describedby="titleHelp" name="task_title" id="input_task_title">
+                    <small id="titleHelp" class="form-text text-muted">Enter a task title...</small>
+                </div>
+                <div class="form-group">
+                    <label for="input_task_content">Task Content</label>
+                    <textarea class="form-control" name="task_content" id="input_task_content" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+    </div>
+    {% else %}
+        <div class="alert alert-success" role="alert">
+            Task was created
+        </div>
+        <li><a href='/tasks/{{ object.id }}/'>{{ object.taskTitle }} - {{ object.taskContent }}</a></li>
+{% endif %}
+{% endblock content%}
