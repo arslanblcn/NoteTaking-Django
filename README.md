@@ -5,7 +5,7 @@ A simple web application that is written in Django, Python web-framework, for ta
 
 ## Requirements
 
-* Python 3.6 + to run Python server
+* Python 3.8 + to run Python server
 
 ## Installation
 
@@ -15,7 +15,7 @@ A simple web application that is written in Django, Python web-framework, for ta
 
 ## First View
 
-1. Create a virtual environment :  `python3.6 -m venv .`
+1. Create a virtual environment :  `python3.8 -m venv .`
 2. Activate it : `source /bin/activate`
 3. Run following command and install required modules : `pip install -r requirements.txt`
 4. Run the server : `python manage.py runserver`
