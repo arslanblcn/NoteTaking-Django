@@ -33,4 +33,4 @@ A simple web application that is written in Django, Python web-framework, for ta
 
 ## License
 
-** GNU GENERAL PUBLIC LICENSE **
+**GNU GENERAL PUBLIC LICENSE**
