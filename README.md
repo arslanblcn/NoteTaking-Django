@@ -15,7 +15,7 @@ A simple web application that is written in Django, Python web-framework, for ta
 
 ## First View
 
-1. Create a virtual environment :  `python3.6 -m venv env .`
+1. Create a virtual environment :  `python3.6 -m venv .`
 2. Activate it : `source /bin/activate`
 3. Run following command and install required modules : `pip install -r requirements.txt`
 4. Run the server : `python manage.py runserver`
